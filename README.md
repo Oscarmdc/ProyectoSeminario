@@ -10,3 +10,7 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 ## Comandos esenciales
 * Ejecutar servidor -> python manage.py runserver
 * Crear una app -> python manage.py startapp nombre_app
+
+
+## Integrantes
+* OscarMDC

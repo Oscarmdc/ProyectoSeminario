@@ -15,3 +15,4 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 ## Integrantes
 * OscarMDC
 * FcoAlejandroG
+* JoelQuijada

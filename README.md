@@ -29,6 +29,18 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 * Read (Select): nom_var = Nom_Object.objects.all()
   * lista_articulos = Articulos.objects.all()
 
+## IMPORTANTE
+Para ejecutar es necesario crear la base de datos de forma local con postgreSQL
+
+### script
+CREATE DATABASE "bdAlmacen"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LOCALE_PROVIDER = 'libc'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
 ## Integrantes
 * OscarMDC
 * FcoAlejandroG

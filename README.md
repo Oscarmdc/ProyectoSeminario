@@ -18,15 +18,15 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 
 ## Operaciones CRUD Django
 * Create (Insert): nom_var = Nom_Object.objects.create(campo_1= valor_1, campo_2= valor_2, campo_n= valor_n)
- * Ejemplo: art = Articulos.objects.create(nombre='taladro',seccion='herramientas', precio = 100)
+  * Ejemplo: art = Articulos.objects.create(nombre='taladro',seccion='herramientas', precio = 100)
 * Update: nom_var = campo_n = new_value
- * Ejemplo: art.precio = 85
+  * Ejemplo: art.precio = 85
 * Delete:
- * nom_var = Nom_Object.get(id = num_id)
- * nom_var.delete()
- * Ejemplo:
- * art2 = Articulos.get(id = 4)
- * art2.delete() 
+  * nom_var = Nom_Object.get(id = num_id)
+  * nom_var.delete()
+  * Ejemplo:
+  * art2 = Articulos.get(id = 4)
+  * art2.delete() 
 * Read (Select): nom_var = Nom_Object.objects.all()
   * lista_articulos = Articulos.objects.all()
 

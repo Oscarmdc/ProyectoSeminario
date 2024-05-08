@@ -25,8 +25,8 @@ Proyecto final de seminario con Python, Django y PostgreSQL
   * nom_var = Nom_Object.get(id = num_id)
   * nom_var.delete()
   * Ejemplo:
-  * art2 = Articulos.get(id = 4)
-  * art2.delete() 
+    * art2 = Articulos.get(id = 4)
+    * art2.delete() 
 * Read (Select): nom_var = Nom_Object.objects.all()
   * lista_articulos = Articulos.objects.all()
 

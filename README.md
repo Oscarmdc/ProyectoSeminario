@@ -31,6 +31,7 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 
 ## IMPORTANTE
 Para ejecutar es necesario crear la base de datos de forma local con postgreSQL
+Comando para instalar psycopg2:  pip install psycopg2 
 
 ### script
 CREATE DATABASE "bdAlmacen"

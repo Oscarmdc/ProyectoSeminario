@@ -4,7 +4,6 @@ Proyecto final de seminario con Python, Django y PostgreSQL
 ## Requisitos
 * Python 3.12.3
 * Django 5.0.4
-* PyCharm Profecional 2024
 * PostgreSQL -> pgAdmin4
 
 ## Comandos esenciales

@@ -33,7 +33,7 @@
         margin-bottom: 5px;
     }
     .form-group input {
-        width: 100%;
+        width: calc(100% - 16px); /* Adjust width to account for padding */
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -44,6 +44,8 @@
         background-color: #007BFF;
         color: white;
         cursor: pointer;
+        border: 1px solid #ccc; /* Make it consistent with other inputs */
+        width: calc(100% - 16px); /* Same width as other inputs */
     }
     .form-group input[type="submit"]:hover {
         background-color: #0056b3;

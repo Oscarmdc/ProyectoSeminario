@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agregar Componentes - Ddtech</title>
+<title>Agregar Ubicación - Ddtech</title>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -51,7 +51,7 @@
         display: block;
         margin-bottom: 10px;
     }
-    select, input[type="text"], input[type="number"] {
+    input[type="text"] {
         width: 100%;
         padding: 8px;
         margin-top: 5px;
@@ -85,28 +85,11 @@
         <a href="edit-delete.html">Editar/Eliminar Componente</a>
     </div>
 <div class="container">
-    <h1>Agregar Nuevo Componente</h1>
-    <form action="/submit-new-component" method="POST">
-        <label for="category">Categoría:</label>
-        <select id="category" name="category" required>
-            <option value="Procesador">Procesador</option>
-            <option value="MemoriaRam">Memoria RAM</option>
-            <option value="Gabinete">Gabinete</option>
-            <option value="MotherBoard">Motherboard</option>
-            <option value="Disipador">Disipador</option>
-            <option value="Almacenamiento">Almacenamiento</option>
-        </select>
-        <label for="brand">Marca:</label>
-        <input type="text" id="brand" name="brand" required>
-        <label for="productName">Nombre del Producto:</label>
-        <input type="text" id="productName" name="productName" required>
-        <label for="description">Descripción:</label>
-        <input type="text" id="description" name="description" required>
-        <label for="price">Precio:</label>
-        <input type="number" id="price" name="price" required>
-        <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" required>
-        <input type="submit" value="Agregar Componente">
+    <h1>Agregar Nueva Ubicación</h1>
+    <form action="/submit-new-location" method="POST">
+        <label for="locationName">Nombre de la Ubicación:</label>
+        <input type="text" id="locationName" name="locationName" required>
+        <input type="submit" value="Agregar Ubicación">
     </form>
 </div>
 </body>

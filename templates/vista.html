@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Administrar Inventario - Ddtech</title>
+{% extends "base.html"%}
+{% block title %} Administrar Inventario - Ddtech {% endblock %}
+{% block content %}
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,28 +9,6 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-    }
-    .navbar {
-        background-color: #007BFF;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
-    .navbar a, .logo-link {
-        color: white;
-        text-decoration: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-    .logo-link img {
-        vertical-align: middle;
-        width: 50px;
-    }
-    .navbar a:hover, .logo-link:hover {
-        background-color: #0056b3;
     }
     .container {
         width: 90%;
@@ -60,16 +35,6 @@
         background-color: #484848;
         color: white;
     }
-    .form-container {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: #333;
-        border-radius: 8px;
-    }
-    .form-group {
-        flex-basis: 30%;
-    }
     button {
         padding: 10px 15px;
         margin-top: 10px;
@@ -89,16 +54,6 @@
         background-color: #B71C1C; /* Darker shade for hover effect on delete button */
     }
 </style>
-</head>
-<body>
-    <div class="navbar">
-        <a href="../menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
-        <a href="add.html">Agregar Componente</a>
-        <a href="../templates/add-provider.html">Agregar Proveedores</a>
-        <a href="../templates/add-category.html">Agregar Categorías</a>
-        <a href="../templates/add-location.html">Agregar Ubicación</a>
-        <a href="edit-delete.html">Editar/Eliminar Componente</a>
-    </div>
 <div class="container">
     <h1>Inventario</h1>
     <table>
@@ -123,7 +78,7 @@
                 <td>High performance</td>
                 <td>$300</td>
                 <td>25</td> <!-- Example stock quantity -->
-                <td><button>Edit</button> <button class="delete">Delete</button></td>
+                <td><a class="button edit">Edit</a> <a class="button delete">Delete</a></td>
             </tr>
             <!-- Repeat rows according to inventory data -->
         </tbody>
@@ -141,5 +96,4 @@
         }
     }
 </script>
-</body>
-</html>
+{% endblock %}

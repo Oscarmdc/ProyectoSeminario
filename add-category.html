@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agregar Categorías - Ddtech</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #2a2b2d;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        color: white;
+    }
+    .navbar {
+        background-color: #007BFF;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar a, .logo-link {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .logo-link img {
+        vertical-align: middle;
+        width: 50px;
+    }
+    .navbar a:hover, .logo-link:hover {
+        background-color: #0056b3;
+    }
+    .container {
+        text-align: center;
+        padding-top: 20px;
+        width: 60%;
+        margin: auto;
+    }
+    form {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: #484848;
+        color: white;
+    }
+    input[type="submit"] {
+        margin-top: 20px;
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50%;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
+        <a href="add.html">Agregar Componente</a>
+        <a href="add-provider.html">Agregar Proveedores</a>
+        <a href="add-category.html">Agregar Categorías</a>
+        <a href="add-location.html">Agregar Ubicación</a>
+        <a href="edit-delete.html">Editar/Eliminar Componente</a>
+    </div>
+<div class="container">
+    <h1>Agregar Nueva Categoría</h1>
+    <form action="/submit-new-category" method="POST">
+        <label for="categoryName">Nombre de la Categoría:</label>
+        <input type="text" id="categoryName" name="categoryName" required>
+        <input type="submit" value="Agregar Categoría">
+    </form>
+</div>
+</body>
+</html>

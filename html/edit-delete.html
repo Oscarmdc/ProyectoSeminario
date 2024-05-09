@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrar Inventario - Ddtech</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #2a2b2d;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+    .navbar {
+        background-color: #007BFF;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar a, .logo-link {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .logo-link img {
+        vertical-align: middle;
+        width: 50px;
+    }
+    .navbar a:hover, .logo-link:hover {
+        background-color: #0056b3;
+    }
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    tr:hover {
+        background-color: #666666;
+    }
+    input[type="text"], input[type="number"], select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 4px;
+        border: none;
+        background-color: #484848;
+        color: white;
+    }
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 8px;
+    }
+    .form-group {
+        flex-basis: 30%;
+    }
+    button {
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button.delete {
+        background-color: #D32F2F; /* Pleasant red color for delete button */
+    }
+    button:hover {
+        opacity: 0.8;
+    }
+    button.delete:hover {
+        background-color: #B71C1C; /* Darker shade for hover effect on delete button */
+    }
+</style>
+</head>
+<body>
+<div class="navbar">
+    <a href="menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
+    <a href="view.html">Visualizar Inventario</a>
+    <a href="add.html">Agregar Componente</a>
+    <a href="edit-delete.html">Editar/Eliminar Componente</a>
+</div>
+<div class="container">
+    <h1>Inventario</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Categoría</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cantidad en Stock</th> <!-- Added Stock Quantity -->
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody onclick="selectItem(event)">
+            <tr>
+                <td>1</td>
+                <td>Procesador</td>
+                <td>Intel Core i7</td>
+                <td>Intel</td>
+                <td>High performance</td>
+                <td>$300</td>
+                <td>25</td> <!-- Example stock quantity -->
+                <td><button>Edit</button> <button class="delete">Delete</button></td>
+            </tr>
+            <!-- Repeat rows according to inventory data -->
+        </tbody>
+    </table>
+</div>
+<script>
+    function selectItem(event) {
+        const row = event.target.parentNode;
+        if (row.tagName === 'TD') {
+            const inputs = document.querySelectorAll('.form-container input, .form-container select');
+            const cells = row.parentNode.children;
+            for (let i = 0; i < cells.length - 1; i++) { // Exclude the last cell which contains buttons
+                inputs[i].value = cells[i].innerText;
+            }
+        }
+    }
+</script>
+</body>
+</html>

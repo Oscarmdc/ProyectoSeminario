@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visualizar Inventario - Ddtech</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #2a2b2d;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+    .navbar {
+        background-color: #007BFF;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar a, .logo-link {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .logo-link img {
+        vertical-align: middle;
+        width: 50px;
+    }
+    .navbar a:hover, .logo-link:hover {
+        background-color: #0056b3;
+    }
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        text-align: center; /* Centrar contenido */
+    }
+    select {
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        background-color: #484848;
+        color: white;
+        font-size: 16px;
+        margin-bottom: 20px; /* Espacio entre el selector y la lista */
+    }
+    .list-container {
+        text-align: left; /* Alineación de la lista a la izquierda */
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
+        <a href="add.html">Agregar Componente</a>
+        <a href="add-provider.html">Agregar Proveedores</a>
+        <a href="add-category.html">Agregar Categorías</a>
+        <a href="add-location.html">Agregar Ubicación</a>
+        <a href="edit-delete.html">Editar/Eliminar Componente</a>
+        <a href="view.html">Visualizar Inventario</a>
+    </div>
+    <div class="container">
+        <h1>Visualizar Inventario</h1>
+        <label for="viewSelector">Seleccionar:</label>
+        <select id="viewSelector">
+            <option value="productos">Productos</option>
+            <option value="categorias">Categorías</option>
+            <option value="proveedores">Proveedores</option>
+            <option value="ubicaciones">Ubicaciones</option>
+        </select>
+        <div class="list-container" id="listContainer">
+            <!-- La lista seleccionada se mostrará aquí -->
+        </div>
+    </div>
+<script>
+    const viewSelector = document.getElementById('viewSelector');
+    const listContainer = document.getElementById('listContainer');
+
+    viewSelector.addEventListener('change', function() {
+        const selectedOption = this.value;
+        listContainer.innerHTML = ''; // Limpiar el contenedor de la lista al cambiar la selección
+
+        switch(selectedOption) {
+            case 'productos':
+                // Aquí se puede agregar la lógica para mostrar la lista de productos
+                listContainer.innerHTML = '<h2>Lista de Productos</h2><ul><li>Producto 1</li><li>Producto 2</li><li>Producto 3</li></ul>';
+                break;
+            case 'categorias':
+                // Aquí se puede agregar la lógica para mostrar la lista de categorías
+                listContainer.innerHTML = '<h2>Lista de Categorías</h2><ul><li>Categoría 1</li><li>Categoría 2</li><li>Categoría 3</li></ul>';
+                break;
+            case 'proveedores':
+                // Aquí se puede agregar la lógica para mostrar la lista de proveedores
+                listContainer.innerHTML = '<h2>Lista de Proveedores</h2><ul><li>Proveedor 1</li><li>Proveedor 2</li><li>Proveedor 3</li></ul>';
+                break;
+            case 'ubicaciones':
+                // Aquí se puede agregar la lógica para mostrar la lista de ubicaciones
+                listContainer.innerHTML = '<h2>Lista de Ubicaciones</h2><ul><li>Ubicación 1</li><li>Ubicación 2</li><li>Ubicación 3</li></ul>';
+                break;
+            default:
+                break;
+        }
+    });
+</script>
+</body>
+</html>

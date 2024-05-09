@@ -5,7 +5,6 @@ from ubicacion.models import Ubicaciones
 
 
 # Create your models here.
-
 class Productos(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
@@ -16,3 +15,5 @@ class Productos(models.Model):
     categoria = models.ForeignKey(Categorias, on_delete=models.SET_NULL, null=True)
     ubicacion = models.ForeignKey(Ubicaciones, on_delete=models.SET_NULL, null=True)
     proveedor = models.ForeignKey(Proveedores, on_delete=models.SET_NULL, null=True)
+
+

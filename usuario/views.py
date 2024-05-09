@@ -1,16 +1,15 @@
 from django.shortcuts import render
 
-
 # Create your views here.
 
 # vista principal de la pagina web
-def principal(request):
+def index(request):
     return render(request, 'menu.html')
 
 
 def login(request):
     context = {}
-    return render(request, 'login.html', context)
+    return render(request, 'registration/login.html', context)
 
 
 def vistas(request):

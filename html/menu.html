@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ddtech Dashboard</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #2a2b2d;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        color: white;
+    }
+    .navbar {
+        background-color: #007BFF;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+    .navbar a, .logo-link {
+        color: white;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .logo-link img {
+        vertical-align: middle;
+        width: 50px;
+    }
+    .navbar a:hover, .logo-link:hover {
+        background-color: #0056b3;
+    }
+    .container {
+        text-align: center;
+        padding-top: 50px;
+    }
+    /* Carousel styles */
+    .carousel {
+        width: 50%; /* Reduce the width of the carousel container */
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+    }
+    .carousel img {
+        width: 100%; /* Adjust image width relative to its container */
+        display: none; /* hide images by default */
+        transition: opacity 0.5s ease;
+    }
+</style>
+</head>
+<body>
+<div class="navbar">
+    <a href="menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
+    <a href="add.html">Agregar Componente</a>
+    <a href="edit.html">Editar Componente</a>
+    <a href="delete.html">Eliminar Componente</a>
+    <a href="view.html">Visualizar Inventario</a>
+</div>
+<div class="container">
+    <h1>Bienvenido al Sistema de Inventario de Ddtech</h1>
+    <p>Explore las funcionalidades del sistema diseñado para simplificar y optimizar la gestión de inventario de componentes de computadora, proporcionando herramientas eficaces para la administración del stock, actualización y seguimiento de productos.</p>
+</div>
+<div class="carousel">
+    <img src="https://ddtech.mx/assets/uploads/2c2ab93ca20c91c2a93d290ed2a1f284.jpg" alt="Component 1" style="display: block;">
+    <img src="https://ddtech.mx/assets/uploads/9787327d384e34446483ead1f610a712.jpg" alt="Component 2">
+    <img src="https://ddtech.mx/assets/uploads/0806a5a214194c493b2f7caa83a5086a.jpg" alt="Component 3">
+</div>
+<script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.carousel img');
+    const totalImages = images.length;
+
+    function cycleImages() {
+        images[currentImageIndex].style.display = 'none'; // hide the current image
+        currentImageIndex = (currentImageIndex + 1) % totalImages; // increment or reset index
+        images[currentImageIndex].style.display = 'block'; // show the next image
+    }
+
+    // Change image every 3 seconds
+    setInterval(cycleImages, 3000);
+</script>
+</body>
+</html>

@@ -28,6 +28,7 @@
         padding: 8px;
         text-align: left;
         border-bottom: 1px solid #ddd;
+        max-height: 100px;
     }
     tr:hover {
         background-color: #666666;
@@ -74,6 +75,20 @@
     .buttondelete:hover {
         background-color: #B71C1C; /* Darker shade for hover effect on delete button */
     }
+    .group-a{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .group-a a{
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 5px 10px;
+        background-color: #007BFF;
+        border-radius: 5px;
+    }
 </style>
 <body>
     <header>
@@ -81,6 +96,16 @@
     </header>
 
     <main>
+
+        <div class="container">
+            <div class="group-a">
+                <a href={% url 'list-products' %} >Productos</a>
+                <a href={% url 'list-provider' %} >Proveedores</a>
+                <a href={% url 'list-category' %} >Categorias</a>
+                <a href={% url 'list-location' %} >Ubicaciones</a>
+            </div>
+        </div>
+
         {% block content %}
 
         {% endblock %}

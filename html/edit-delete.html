@@ -52,7 +52,7 @@
         background-color: #666666;
     }
     input[type="text"], input[type="number"], select {
-        width: 100%;
+        width: calc(100% - 16px); /* Considerando el padding */
         padding: 8px;
         margin-top: 5px;
         border-radius: 4px;
@@ -61,14 +61,12 @@
         color: white;
     }
     .form-container {
-        display: flex;
-        justify-content: space-between;
         padding: 20px;
         background-color: #333;
         border-radius: 8px;
     }
     .form-group {
-        flex-basis: 30%;
+        margin-bottom: 10px;
     }
     button {
         padding: 10px 15px;
@@ -88,16 +86,54 @@
     button.delete:hover {
         background-color: #B71C1C; /* Darker shade for hover effect on delete button */
     }
+
+    /* Estilos para los modales */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #333;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="../menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
+        <a href="menu.html" class="logo-link"><img src="https://t0.gstatic.com/images?q=tbn:ANd9GcSOK_Inp670TMkHu9L6u1JVmYYf5lXfn0IlrLXS2AgpwskX7vgU" alt="Ddtech Logo"></a>
         <a href="add.html">Agregar Componente</a>
-        <a href="../templates/add-provider.html">Agregar Proveedores</a>
-        <a href="../templates/add-category.html">Agregar Categorías</a>
-        <a href="../templates/add-location.html">Agregar Ubicación</a>
+        <a href="add-provider.html">Agregar Proveedores</a>
+        <a href="add-category.html">Agregar Categorías</a>
+        <a href="add-location.html">Agregar Ubicación</a>
         <a href="edit-delete.html">Editar/Eliminar Componente</a>
+        <a href="view.html">Visualizar Inventario</a>
     </div>
 <div class="container">
     <h1>Inventario</h1>
@@ -123,12 +159,56 @@
                 <td>High performance</td>
                 <td>$300</td>
                 <td>25</td> <!-- Example stock quantity -->
-                <td><button>Edit</button> <button class="delete">Delete</button></td>
+                <td><button class="edit">Editar</button> <button class="delete">Eliminar</button></td>
             </tr>
             <!-- Repeat rows according to inventory data -->
         </tbody>
     </table>
 </div>
+
+<!-- Modal para eliminar -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>¿Estás seguro de que deseas eliminar este componente?</p>
+    <button id="confirmDelete" class="delete">Eliminar</button>
+  </div>
+</div>
+
+<!-- Modal para editar -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="editCategory">Categoría</label>
+            <input type="text" id="editCategory">
+        </div>
+        <div class="form-group">
+            <label for="editName">Nombre</label>
+            <input type="text" id="editName">
+        </div>
+        <div class="form-group">
+            <label for="editBrand">Marca</label>
+            <input type="text" id="editBrand">
+        </div>
+        <div class="form-group">
+            <label for="editDescription">Descripción</label>
+            <input type="text" id="editDescription">
+        </div>
+        <div class="form-group">
+            <label for="editPrice">Precio</label>
+            <input type="number" id="editPrice">
+        </div>
+        <div class="form-group">
+            <label for="editStock">Cantidad en Stock</label>
+            <input type="number" id="editStock">
+        </div>
+    </div>
+    <button id="saveEdit">Guardar</button>
+  </div>
+</div>
+
 <script>
     function selectItem(event) {
         const row = event.target.parentNode;
@@ -138,6 +218,50 @@
             for (let i = 0; i < cells.length - 1; i++) { // Exclude the last cell which contains buttons
                 inputs[i].value = cells[i].innerText;
             }
+        }
+    }
+
+    // Obtenemos el modal de eliminar
+    var deleteModal = document.getElementById('deleteModal');
+    // Obtenemos el botón de eliminar que abre el modal
+    var deleteButton = document.querySelector('.delete');
+    // Obtenemos el elemento de cerrar (x) del modal
+    var deleteClose = document.getElementsByClassName('close')[0];
+
+    // Cuando se hace clic en el botón de eliminar, abrimos el modal
+    deleteButton.onclick = function() {
+        deleteModal.style.display = 'block';
+    }
+
+    // Cuando se hace clic en el elemento de cerrar, cerramos el modal
+    deleteClose.onclick = function() {
+        deleteModal.style.display = 'none';
+    }
+
+    // Obtenemos el modal de editar
+    var editModal = document.getElementById('editModal');
+    // Obtenemos el botón de editar que abre el modal
+    var editButton = document.querySelector('button.edit');
+    // Obtenemos el elemento de cerrar (x) del modal de editar
+    var editClose = document.getElementsByClassName('close')[1];
+
+    // Cuando se hace clic en el botón de editar, abrimos el modal
+    editButton.onclick = function() {
+        editModal.style.display = 'block';
+    }
+
+    // Cuando se hace clic en el elemento de cerrar, cerramos el modal de editar
+    editClose.onclick = function() {
+        editModal.style.display = 'none';
+    }
+
+    // Cuando el usuario hace clic fuera del modal, lo cerramos
+    window.onclick = function(event) {
+        if (event.target == deleteModal) {
+            deleteModal.style.display = 'none';
+        }
+        if (event.target == editModal) {
+            editModal.style.display = 'none';
         }
     }
 </script>

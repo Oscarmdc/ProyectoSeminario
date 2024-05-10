@@ -16,17 +16,36 @@ Including another URLconf
 """
 
 from django.urls import path
+
+import proveedor
 from .views import index, vistas
-from producto.views import addProducto
-from proveedor.views import provedores
-from categoria.views import categorias
-from ubicacion.views import ubicacion
+from producto.views import addProducto, editProducto, getProductos, deleteProducto
+from proveedor.views import addProvedor, editProveedor, getProveedores, deleteProveedor
+from categoria.views import addCategoria, editCategoria, getCategorias, deleteCategoria
+from ubicacion.views import addUbicacion, editUbicacion, getUbicaciones, deleteUbicacion
 
 urlpatterns = [
     path('', index, name='index'),
-    path('productos/', addProducto, name='add-product'),
-    path('proveedores/', provedores, name='add-provider'),
-    path('categorias/', categorias, name='add-category'),
-    path('ubicacion/', ubicacion, name='add-location'),
+
+    path('nuevo-producto/', addProducto, name='add-product'),
+    path('editar-producto/<int:id>', editProducto, name='edit-product'),
+    path('lista-productos/', getProductos, name='list-products'),
+    path('eliminar-producto/<int:id>', deleteProducto, name='delete-product'),
+
+    path('nuevo-proveedor/', addProvedor, name='add-provider'),
+    path('editar-proveedor/<int:id>', editProveedor, name='edit-provider'),
+    path('lista-proveedores/', getProveedores, name='list-provider'),
+    path('eliminar-proveedor/<int:id>', deleteProveedor, name='delete-provider'),
+
+    path('nueva-categoria/', addCategoria, name='add-category'),
+    path('editar-categoria/<int:id>', editCategoria, name='edit-category'),
+    path('lista-categorias/', getCategorias, name='list-category'),
+    path('eliminar-categoria/<int:id>', deleteCategoria, name='delete-category'),
+
+    path('nueva-ubicacion/', addUbicacion, name='add-location'),
+    path('editar-ubicacion/<int:id>', editUbicacion, name='edit-location'),
+    path('lista-ubicaciones/', getUbicaciones, name='list-location'),
+    path('editar-ubicacion/<int:id>', deleteUbicacion, name='delete-location'),
+
     path('vistas/', vistas, name='vistas'),
 ]

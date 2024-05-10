@@ -1,5 +1,5 @@
-{% extends "base.html"%}
-{% block title %} Agregar Proveedores - Ddtech {% endblock %}
+{% extends "base.html" %}
+{% block title %} Editar Proveedor - Ddtech {% endblock %}
 {% block content %}
 
 <style>
@@ -32,7 +32,7 @@
 </style>
 
 <div class="container">
-    <h1>Agregar Nuevo Proveedor</h1>
+    <h1>Editar Proveedor</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form_proveedor }}

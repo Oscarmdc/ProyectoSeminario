@@ -1,7 +1,21 @@
-{% extends "base.html"%}
-{% block title %} Administrar Inventario - Ddtech {% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+</head>
 <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #2a2b2d;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        color: white;
+    }
     .container {
         width: 90%;
         margin: 20px auto;
@@ -27,6 +41,10 @@
         background-color: #484848;
         color: white;
     }
+    .group-bouttons{
+        display: flex;
+        gap: 10px;
+    }
     .button {
         padding: 5px 10px;
         margin-top: 10px;
@@ -35,50 +53,43 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        text-decoration: none;
     }
-    .button.delete {
+    .buttondelete{
+        padding: 5px 10px;
+        margin-top: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .buttondelete {
         background-color: #D32F2F; /* Pleasant red color for delete button */
     }
     .button:hover {
         opacity: 0.8;
     }
-    .button.delete:hover {
+    .buttondelete:hover {
         background-color: #B71C1C; /* Darker shade for hover effect on delete button */
     }
 </style>
-<div class="container">
-    <h1>Inventario</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Categoría</th>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Cantidad en Stock</th> <!-- Added Stock Quantity -->
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody onclick="selectItem(event)">
-            <tr>
-                <td>1</td>
-                <td>Procesador</td>
-                <td>Intel Core i7</td>
-                <td>Intel</td>
-                <td>High performance</td>
-                <td>$300</td>
-                <td>25</td> <!-- Example stock quantity -->
-                <td>
-                    <a href="#" class="button">Edit</a>
-                    <a href="#" class="button delete">Delete</a>
-                </td>
-            </tr>
-            <!-- Repeat rows according to inventory data -->
-        </tbody>
-    </table>
-</div>
+<body>
+    <header>
+        {% include "navbar.html" %}
+    </header>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
 <script>
     function selectItem(event) {
         const row = event.target.parentNode;
@@ -91,4 +102,4 @@
         }
     }
 </script>
-{% endblock %}
+</html>

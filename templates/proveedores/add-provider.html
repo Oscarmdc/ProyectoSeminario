@@ -1,32 +1,20 @@
-{% extends "base.html"%}
-{% block title %} Agregar Ubicación - Ddtech {% endblock %}
+{% extends "base.html" %}
+{% block title %} Agregar Proveedores - Ddtech {% endblock %}
 {% block content %}
 
 <style>
     label {
         display: block;
-        margin-bottom: 10px;
+        margin-top: 10px;
     }
-    input[type="text"] {
+    input[type="text"], input[type="number"], input[type="email"] {
         width: 95%;
         padding: 8px;
-        margin: 10px 0;
+        margin-top: 5px;
         border-radius: 4px;
         border: 1px solid #ccc;
         background-color: #484848;
         color: white;
-    }
-    textarea{
-        width: 100%;
-        padding: 8px;
-        margin: 10px 0;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background-color: #484848;
-        color: white;
-        max-width: 95%;
-        min-width: 95%;
-        height: 120px;
     }
     input[type="submit"] {
         margin-top: 20px;
@@ -44,11 +32,12 @@
 </style>
 
 <div class="container">
-    <h1>Agregar Nueva Ubicación</h1>
-    <form  method="POST">
+    <h1>Agregar Nuevo Proveedor</h1>
+    <form method="POST">
         {% csrf_token %}
-        {{ form_ubicacion }}
-        <input type="submit" value="Guardar ubicación" />
+        {{ form_proveedor }}
+        <input type="submit" value="Guardar proveedor" />
     </form>
 </div>
+
 {% endblock %}

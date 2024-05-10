@@ -1,0 +1,48 @@
+{% extends "vista.html"%}
+{% block title %} Inventario Productos - Ddtech {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de productos:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Fecha modificación</th>
+                <th>Categoria</th> <!-- Added Stock Quantity -->
+                <th>Ubicación</th>
+                <th>Proveedor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody onclick="selectItem(event)">
+
+            {% for product in productos %}
+                    <tr>
+                	<td>{{ product.id }}</td>
+                    <td>{{ product.nombre }}</td>
+                    <td>{{ product.descripcion }}</td>
+                    <td>{{ product.precio }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td>{{ product.fecha_modificacion }}</td>
+                    <td>{{ product.categoria }}</td> <!-- foraneas -->
+                    <td>{{ product.ubicacion }}</td>
+                    <td>{{ product.proveedor }}</td>
+                    <td>
+                        <div class="group-bouttons">
+                            <a href={% url 'edit-product' product.id %} class="button">Editar</a>
+                            <a href={% url 'delete-product' product.id %} class="buttondelete">Eliminar</a>
+                        </div>
+                    </td>
+                    </tr>
+            {% endfor %}
+
+            <!-- Repeat rows according to inventory data -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}

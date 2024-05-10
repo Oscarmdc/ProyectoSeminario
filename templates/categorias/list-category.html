@@ -1,0 +1,35 @@
+{% extends "vista.html"%}
+{% block title %} Inventario Categorias- Ddtech {% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Lista de categorias:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody onclick="selectItem(event)">
+
+                {% for categoria in categorias %}
+                    <tr>
+                	<td>{{ categoria.id }}</td>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.descripcion }}</td>
+                    <td>
+                        <div class="group-bouttons">
+                            <a href={% url 'edit-category' categoria.id %} class="button">Editar</a>
+                            <a href={% url 'delete-category' categoria.id %} class="buttondelete" >Eliminar</a>
+                        </div>
+                    </td>
+                    </tr>
+                {% endfor %}
+
+            <!-- Repeat rows according to inventory data -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
-{% extends "base.html"%}
-{% block title %} Agregar Categorías - Ddtech {% endblock %}
+{% extends "base.html" %}
+{% block title %} Editar categoría - Ddtech {% endblock %}
 {% block content %}
 
 <style>
@@ -44,7 +44,7 @@
 </style>
 
 <div class="container">
-    <h1>Agregar Nueva Categoría</h1>
+    <h1>Editar Categoría</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form_categoria }}
